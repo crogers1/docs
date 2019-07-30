@@ -1,0 +1,816 @@
+The 8.0.0 release is a tagged checkpoint of the stable-8 branch.
+
+- OpenEmbedded: Pyro
+  * openembedded-core: link:http://git.openembedded.org/openembedded-core/commit/?id=819aa151bd634122a46ffdd822064313c67f5ba5[819aa151bd build-appliance-image: Update to pyro head revision]
+  * meta-openembedded: link:http://git.openembedded.org/openembedded-core/commit/?id=9eaebc6e783f1394bb5444326cd05a976b3122e9[9eaebc6e7 wireshark: Update Package to 2.2.12]
+  * meta-intel: link:http://git.yoctoproject.org/cgit/cgit.cgi/meta-intel/commit/?id=9b37952d6af36358b6397cedf3dd53ec8962b6bf[9b37952 linux-intel/4.9: Update to v4.9.81]
+  * meta-java: link:http://git.yoctoproject.org/cgit/cgit.cgi/meta-java/commit/?id=0c27b120aa508e4bb41394b8dd3645949a611128[0c27b12 icedtea-native: Fix segmentation build during build]
+  * meta-selinux: link:http://git.yoctoproject.org/cgit/cgit.cgi/meta-selinux/commit/?id=d855c624f32c5e599bf27e06cb8f5b25b3aae12d[d855c62 setools: Fix build failures on 64-bit machines]
+  * meta-virtualization: link:http://git.yoctoproject.org/cgit/cgit.cgi/meta-virtualization/commit/?id=45ad257a1e4a6707c376d2f7eb26c3c8bdf03607[45ad257 go-fsnotify: switch to new repository on github]
+- Xen: 4.9.3-pre
+  * xen: link:http://xenbits.xen.org/gitweb/?p=xen.git;a=commit;h=238007d6fae9447bf5e8e73d67ae9fb844e7ff2a[238007d6fa x86/HVM: account for fully eager FPU mode in emulation]
+- Linux kernels: 4.14.57
+- Host UEFI installation and upgrade support.
+- Host UEFI SRTM measurement and forward-sealing support.
+- Host UEFI will only leverage SRTM. TBoot and DRTM will be added in later releases.
+- Blktap3 PV disk backend.
+
+==== Package upgrades: Dom0
+* acms: 1.0-r3 -> 1.0-r3
+* acpid: 2.0.23-r0 -> 2.0.28-r0
+* alsa-conf: 1.0.29-r0.1 -> 1.1.3-r0
+* alsa-states: 0.2.0-r5 -> 0.2.0-r5
+* alsa-utils: 1.0.29-r0 -> 1.1.3-r0
+* atapi-pt-helper: 0+git0+b695a5af21-r0 -> 0+git0+916b9bfc35-r0
+* audio-helper: 0+git0+b695a5af21-r0 -> 0+git0+916b9bfc35-r0
+* audit: 2.4.4-r8 -> 2.7.6-r0
+* base-files: 3.0.14-r92xc10 -> 3.0.14-r89
+* base-passwd: 3.5.29-r0 -> none
+* bash: 4.3.30-r0 -> 4.3.30-r0
+* blktap3: none -> 0+git0+e9216cfeb7-r0
+* bridge-utils: 1.5-r0 -> 1.5-r0
+* busybox: 1.23.2-r0.1 -> 1.24.1-r0
+* bzip2: 1.0.6-r5 -> 1.0.6-r5
+* ca-certificates: 20150426-r0 -> 20161130-r0
+* compleat: 0+git0+b695a5af21-r0 -> 0+git0+916b9bfc35-r0
+* coreutils: 8.24-r0.1 -> 8.26-r0.1
+* cryptsetup: 1.6.7-r0.1 -> 1.7.4-r0
+* curl: 7.54.0-r0 -> 7.54.0-r0
+* dbd: 0+git0+3a04bb9054-r0 -> git-r0
+* dbus-1: 1.8.20-r0.1 -> 1.10.14-r0
+* dd-buffered: 1.0-r1 -> 1.0-r1
+* dialog: 1.2-20150225-r0 -> 1.2-20150225-r0
+* diffutils: 3.3-r0 -> 3.5-r0
+* dm-agent: 0+git0+e0be335b9d-r0 -> 0+git0+ccfca235de-r0
+* dmidecode: 3.0-r0 -> 3.0-r0
+* drm-surfman-plugin: 0+git0+c26015150d-r0 -> 0+git0+3263678cd1-r0
+* e2fsprogs: 1.42.9-r0.1 -> 1.43.4-r0
+* efivar: none -> 0.24-r0
+* eject: 2.1.5-r1 -> 2.1.5-r1
+* ethtool: 4.0-r0 -> 4.8-r0
+* eudev: 182-r9.4.1 -> 3.2.1-r0
+* eudev-hwdb: none -> 3.2.1-r0
+* fbtap: 0+git0+b5dfb906a6-r0 -> 0+git0+c81549a8f4-r0
+* file: none -> 5.30-r0
+* ghc-attoparsec: 0.9.1.1-r6 -> none
+* ghc-base-unicode-symbols: 0.2.2.4-r6 -> none
+* ghc-binary: 0.5.0.2-r6 -> none
+* ghc-cereal: 0.3.3.0-r6 -> none
+* ghc-data-binary-ieee754: 0.4-r6 -> none
+* ghc-dbus-core: 0.8.1-r6 -> none
+* ghc-deepseq: 1.1.0.0-r6 -> none
+* ghc-haxml: 1.20.2-r6 -> none
+* ghc-hinotify: 0.3.2-r6 -> none
+* ghc-hsyslog: 1.4-r6 -> none
+* ghc-http: 4000.1.1-r6 -> none
+* ghc-json: 0.4.3-r6 -> none
+* ghc-lifted-base: 0.1.1.1-r6 -> none
+* ghc-monad-control: 0.3.1.4-r6 -> none
+* ghc-monad-loops: 0.3.3.0-r6 -> none
+* ghc-monadprompt: 1.0.0.3-r6 -> none
+* ghc-mtl: 2.1.1-r6 -> none
+* ghc-network: 2.2.1.7-r6 -> none
+* ghc-network-bytestring: 0.1.3-r6 -> none
+* ghc-parsec: 3.1.0-r6 -> none
+* ghc-polyparse: 1.4-r6 -> none
+* ghc-regex-base: 0.93.1-r6 -> none
+* ghc-regex-posix: 0.94.1-r6 -> none
+* ghc-runtime: 6.12.1-r0 -> 6.12.3-r0
+* ghc-text: 0.7.1.0-r6 -> none
+* ghc-transformers: 0.3.0.0-r6 -> none
+* ghc-transformers-base: 0.4.1-r6 -> none
+* ghc-xenstore: 0.1.0-r6 -> none
+* ghc-zlib: 0.5.3.1-r6 -> none
+* glibc: 2.22-r0 -> 2.25-r0
+* gobi-loader: 0.7-r1 -> 0.7-r1
+* grub: 2.00+0+87de66d9d8-r0.1 -> 2.00+0+ce95549cc5-r0.1
+* gzip: 1.6-r0 -> 1.8-r0
+* hdparm: 9.48-r0 -> 9.51-r0
+* heimdallr: git-r0 -> git-r0
+* hkg-attoparsec: none -> 0.9.1.1-r1
+* hkg-base-unicode-symbols: none -> 0.2.2.4-r1
+* hkg-binary: none -> 0.5.0.2-r1
+* hkg-cereal: none -> 0.3.3.0-r1
+* hkg-data-binary-ieee754: none -> 0.4-r1
+* hkg-dbus-core: none -> 0.8.1-r1
+* hkg-deepseq: none -> 1.1.0.0-r1
+* hkg-haxml: none -> 1.20.2-r0
+* hkg-hinotify: none -> 0.3.2-r1
+* hkg-hsyslog: none -> 1.4-r1
+* hkg-http: none -> 4000.1.1-r1
+* hkg-json: none -> 0.4.3-r1
+* hkg-lifted-base: none -> 0.1.1.1-r1
+* hkg-monad-control: none -> 0.3.1.4-r1
+* hkg-monad-loops: none -> 0.3.3.0-r1
+* hkg-monadprompt: none -> 1.0.0.3-r1
+* hkg-mtl: none -> 2.1.1-r1
+* hkg-network-bytestring: none -> 0.1.3-r1
+* hkg-network: none -> 2.2.1.7-r1
+* hkg-parsec: none -> 3.1.0-r1
+* hkg-polyparse: none -> 1.4-r1
+* hkg-regex-base: none -> 0.93.1-r1
+* hkg-regex-posix: none -> 0.94.1-r1
+* hkg-text: none -> 0.7.1.0-r1
+* hkg-transformers-base: none -> 0.4.1-r1
+* hkg-transformers: none -> 0.3.0.0-r1
+* hkg-utf8-string: none -> 0.3.4-r1
+* hkg-xenstore: none -> 0.1.0-r1
+* hkg-zlib: none -> 0.5.3.1-r1
+* init-ifupdown: 1.0-r7.1 -> 1.0-r7.1
+* initscripts: 1.0-r155.1 -> 1.0-r155.1
+* intel-microcode: 20170707-r0 -> 20180312-r0
+* iproute2: 4.1.1-r0.2 -> 4.10.0-r0.2
+* iptables: 1.4.21-r0 -> 1.6.1-r0
+* iputils-ping: s20121221-r0 -> s20151218-r0
+* kbd: 2.0.2-r0 -> 2.0.4-r0
+* kernel: 4.9.40-r0 -> 4.14.57-r0
+* kmod: 21+git0+114ec87c85-r0.1 -> 23+git0+65a885df5f-r0.1
+* ldd: 2.22-r0 -> 2.25-r0
+* less: 479-r0 -> 487-r0
+* libacl1: 2.2.52-r0 -> 2.2.52-r0
+* libacpi0: 0.2-r6 -> 0.2-r6
+* libaio1: 0.3.110-r0 -> 0.3.110-r0
+* libarchive13: 3.1.2-r0 -> none
+* libarchive: none -> 3.2.2-r0
+* libasound2: 1.0.29-r0.1 -> 1.1.3-r0
+* libattr1: 2.4.47-r0 -> 2.4.47-r0
+* libblkid1: 2.26.2-r0.3 -> 2.29.1-r0
+* libblktapctl1.0: 4.6.6-r0 -> none
+* libbudgetvhd: git0+522e688b19-r0 -> git0+522e688b19-r0
+* libbz2-0: 1.0.6-r5 -> none
+* libbz2-1: none -> 1.0.6-r5
+* libc6: 2.22-r0 -> 2.25-r0
+* libcap2: 2.24-r0 -> 2.25-r0
+* libcap-ng0: 0.7.7-r0 -> 0.7.8-r0
+* libcom-err2: 1.42.9-r0.1 -> 1.43.4-r0
+* libcrypto1.0.2: 1.0.2k-r0 -> 1.0.2n-r0
+* libcurl4: none -> 7.54.0-r0
+* libcurl5: 7.54.0-r0 -> none
+* libdbus-1-3: 1.8.20-r0.1 -> 1.10.14-r0
+* libdbus-glib-1-2: 0.104-r0 -> 0.108-r0
+* libdevmapper: none -> 2.02.166-r0
+* libdmbus-0.1-1: 0+git0+b695a5af21-r0 -> 0+git0+916b9bfc35-r0
+* libdrm: 2.4.65-r0 -> none
+* libdrm2: none -> 2.4.75-r0
+* libe2p2: 1.42.9-r0.1 -> 1.43.4-r0
+* libedid: 0+git0+bad8ca87e4-r1 -> 0+git0+bad8ca87e4-r1
+* libelf1: none -> 0.168-r0
+* libestr0: 0.1.10-r0 -> 0.1.10-r0
+* libevent: 2.0.22-r0 -> 2.0.22-r0
+* libexpat1: 2.1.0-r0 -> 2.2.0-r0
+* libext2fs2: 1.42.9-r0.1 -> 1.43.4-r0
+* libfastjson4: none -> 0.99.4-r0
+* libfdisk1: 2.26.2-r0.3 -> 2.29.1-r0
+* libffi6: 3.2.1-r0 -> 3.2.1-r0
+* libflac8: 1.3.1-r0 -> 1.3.2-r0
+* libformw5: 5.9-r15.1 -> 6.0+20161126-r0
+* libfreetype6: 2.6-r0 -> 2.7.1-r0
+* libgcc1: 5.2.0-r0 -> 6.4.0-r0
+* libgcrypt: 1.6.3-r1.1 -> 1.7.6-r0
+* libglib-2.0: 1:2.44.1-r0.1 -> 1:2.50.3-r0
+* libgmp10: 6.0.0-r0 -> 6.1.2-r0
+* libgnutls: 3.3.17.1-r0 -> 3.5.9-r0
+* libgpg-error: 1.19-r0 -> 1.26-r1
+* libicbinn-1.0-0: none -> 0+git0+760f5b3553-r0
+* libicbinn-1.0-server: 0+git0+4b4b14b9d3-r0 -> 0+git0+760f5b3553-r0
+* libidn: none -> 1.33-r0
+* libjson-c2: 0.12-r0 -> 0.12-r0
+* libkmod2: 21+git0+114ec87c85-r0.1 -> 23+git0+65a885df5f-r0.1
+* liblogging: 1.0.5-r0 -> 1.0.5-r0
+* liblzma5: 5.2.1-r0 -> 5.2.3-r0
+* liblzo2-2: 2.09-r0 -> 2.09-r0
+* libmenuw5: 5.9-r15.1 -> 6.0+20161126-r0
+* libmount1: 2.26.2-r0.3 -> 2.29.1-r0
+* libncurses5: 5.9-r15.1 -> 6.0+20161126-r0
+* libncursesw5: 5.9-r15.1 -> 6.0+20161126-r0
+* libnl: 1:3.2.25-r1 -> 1:3.2.29-r0
+* libogg0: 1.3.2-r0 -> 1.3.2-r0
+* libopkg1: 1:0.3.0-r0.1 -> 1:0.3.4-r0.1
+* libpam: 1.2.1-r5.1 -> 1.3.0-r5
+* libpanelw5: 5.9-r15.1 -> 6.0+20161126-r0
+* libpci3: 3.3.1-r0.1 -> 3.5.2-r0
+* libpciaccess0: 0.12.902-r0.1 -> 0.13.4-r0
+* libpcre1: 8.38-r09 -> 8.40-r0
+* libpixman-1-0: none -> 1:0.34.0-r0
+* libpng16-16: 1.6.17-r0 -> 1.6.28-r0
+* libpopt: 1.16-r3 -> 1.16-r3
+* libsamplerate0: 0.1.8-r1 -> 0.1.9-r1
+* libsapi0: git.0+56fec897d5-r0 -> git.0+56fec897d5-r0
+* libselinux1: 2.4-r0.1 -> 2.7-r0
+* libselinux-bin: 2.4-r0.1 -> 2.7-r0
+* libsemanage1: 2.4-r0 -> 2.7-r0
+* libsepol1: 2.4-r0.1 -> 2.7-r0
+* libsmartcols1: 2.26.2-r0.3 -> 2.29.1-r0
+* libsndfile1: 1.0.27-r0 -> 1.0.27-r0
+* libsolv0: none -> 0.6.26-r0
+* libsqlite3-0: none -> 3:3.17.0-r0
+* libss2: 1.42.9-r0.1 -> 1.43.4-r0
+* libssl1.0.2: 1.0.2k-r0 -> 1.0.2n-r0
+* libstdc++6: none -> 6.4.0-r0
+* libsurfman-2.1-0: 0+git0+c26015150d-r0 -> 0+git0+3263678cd1-r0
+* libsysfs2: 2.1.0-r5 -> 2.1.0-r5
+* libtcl8.6-0: 8.6.4-r0 -> 8.6.6-r0
+* libtcti: git.0+56fec897d5-r0 -> git.0+56fec897d5-r0
+* libtinfo5: 5.9-r15.1 -> 6.0+20161126-r0
+* libtirpc: 0.2.2-r0 -> 1.0.2-r0
+* libudev: 182-r9.4.1 -> 3.2.1-r0
+* libunistring2: none -> 0.9.7-r0
+* libusb-1.0-0: 1.0.19-r0 -> 1.0.21-r0
+* libustr-1.0-1: 1.0.4-r2 -> none
+* libuuid1: 2.26.2-r0.3 -> 2.29.1-r0
+* libv4v: git0+28423277b9-r0 -> git0+c0c98489b4-r0
+* libvhd1.0: 4.6.6-r0 -> none
+* libvorbis: 1.3.5-r0 -> 1.3.5-r0
+* libx11: 1:1.6.3-r0 -> 1:1.6.4-r0
+* libx86-1: 0.99-r0 -> 1.1-r0
+* libxau6: 1:1.0.8-r0 -> 1:1.0.8-r0
+* libxcb1: 1.11-r0.1 -> 1.12-r0
+* libxcdbus-1.0-0: 0+git0+754c65c188-r0 -> 0+git0+53650007ee-r0
+* libxchdb: 0+git0+c47783e944-r6 -> 0+git0+c47783e944-r0
+* libxch-rpc: 0+git0+c47783e944-r6 -> 0+git0+c47783e944-r0
+* libxchutils: 0+git0+c47783e944-r6 -> 0+git0+c47783e944-r0
+* libxchv4v: 0+git0+c47783e944-r6 -> 0+git0+c47783e944-r0
+* libxchwebsocket: 0+git0+c47783e944-r6 -> 0+git0+c47783e944-r0
+* libxchxenstore: 0+git0+c47783e944-r6 -> 0+git0+c47783e944-r0
+* libxcxenstore: 0+git0+c47783e944-r1 -> 0+git0+c47783e944-r1
+* libxdmcp6: 1:1.1.2-r0 -> 1:1.1.2-r0
+* libxenbackend-0.1-0: 0+git0+66c02bd964-r1 -> 0+git0+66c02bd964-r1
+* libxencall1: none -> 4.9.3-pre-r0
+* libxenctrl4.6: 4.6.6-r0 -> none
+* libxenctrl4.9: none -> 4.9.3-pre-r0
+* libxendevicemodel1: none -> 4.9.3-pre-r0
+* libxenevtchn1: none -> 4.9.3-pre-r0
+* libxenforeignmemory1: none -> 4.9.3-pre-r0
+* libxengnttab1: none -> 4.9.3-pre-r0
+* libxenguest4.6: 4.6.6-r0 -> none
+* libxenguest4.9: none -> 4.9.3-pre-r0
+* libxenlight4.6: 4.6.6-r0 -> none
+* libxenlight4.9: none -> 4.9.3-pre-r0
+* libxenmgr-core: 0+git0+3a04bb9054-r6 -> 0+git0+1879d7ca2c-r0
+* libxenstat0: 4.6.6-r0 -> 4.9.3-pre-r0
+* libxenstore3.0: 4.6.6-r0 -> 4.9.3-pre-r0
+* libxentoollog1: none -> 4.9.3-pre-r0
+* libxlutil4.6: 4.6.6-r0 -> none
+* libxlutil4.9: none -> 4.9.3-pre-r0
+* libxml2: 2.9.2-r0 -> 2.9.4-r0
+* libyajl2: 2.1.0-r0 -> 2.1.0-r0
+* libz1: 1.2.8-r0 -> 1.2.11-r0
+* linuxfb-surfman-plugin: 0+git0+c26015150d-r0 -> 0+git0+3263678cd1-r0
+* linux-firmware: 1:0.0+git0+6f5257c629-r0 -> 1:0.0+git0+6f5257c629-r0
+* linux-input: 0.0+git0+e4331cbc61-r5 -> 1.6.0-r0
+* locale-base: 2.22-r0 -> 2.25-r0
+* logrotate: 3.9.1-r0 -> 3.9.1-r0
+* lvm2: 2.02.125-r0 -> 2.02.166-r0
+* lvm2-scripts: none -> 2.02.166-r0
+* lvm2-udevrules: none -> 2.02.166-r0
+* modules: 1.0-r1 -> 1.0-r1
+* modutils-initscripts: 1.0-r7 -> 1.0-r7
+* nano: 2.2.5-r3.0 -> 2.7.4-r0
+* ncurses-terminfo: 5.9-r15.1 -> 6.0+20161126-r0
+* netbase: 1:5.3-r0 -> 1:5.4-r0
+* netcat: 0.7.1-r3 -> 0.7.1-r3
+* nettle: 3.1.1-r0 -> 3.3-r0
+* nspr: none -> 4.18-r0
+* nss: none -> 3.34.1-r0
+* ntpdate: 4.2.8p8-r0 -> 4.2.8p10-r0
+* openssh: 7.5p1-r0.5 -> 7.5p1-r0
+* openssl: 1.0.2k-r0 -> 1.0.2n-r0
+* openssl-conf: 1.0.2k-r0 -> 1.0.2n-r0
+* openxt-keymanagement: 1.0-r0 -> 1.0-r0
+* openxt-measuredlaunch: 1.0-r0 -> 1.0-r0
+* opkg: 1:0.3.0-r0.1 -> 1:0.3.4-r0.1
+* opkg-arch-config: 1.0-r1 -> 1.0-r1
+* packagegroup-base: 1.0-r83.1 -> 1.0-r83.1
+* packagegroup-core-boot: 1.0-r17 -> 1.0-r17
+* packagegroup-distro-base: 1.0-r83.1 -> 1.0-r83.1
+* packagegroup-machine-base: 1.0-r83.1 -> 1.0-r83.1
+* packagegroup-openxt-test: 1.0-r0 -> 1.0-r0
+* packagegroup-xenclient-common: 1.0-r0 -> 1.0-r0
+* packagegroup-xenclient-dom0: 1.0-r0 -> 1.0-r0
+* pam-plugins: 1.2.1-r5.1 -> 1.3.0-r5
+* pciutils: 3.3.1-r0.1 -> 3.5.2-r0
+* pesign: none -> git0+3e15519f70-r0
+* pmtools: 20100513-r0 -> 20130209+git0+3ebe0e54c5-r0
+* policycoreutils: 2.4-r0 -> 2.7-r0
+* procps: 3.3.10-r0 -> 3.3.12-r0
+* qemu-dm: 2.6.2-r17.6 -> 2.6.2-r17.6
+* qemu-wrappers: 1.0-r0 -> 1.0-r0
+* qmp-helper: 0+git0+b695a5af21-r0 -> 0+git0+916b9bfc35-r0
+* read-edid: 3.0.2-r0 -> 3.0.2-r0
+* refpolicy-mcs: 2.20141203-r0.3 -> 2.20170204-r0
+* rpcbind: none -> 0.2.4-r0
+* rpc-proxy: 0+git0+3a04bb9054-r0 -> 0+git0+1879d7ca2c-r0
+* rsync: 3.1.1-r0r1 -> 3.1.2-r0
+* rsyslog: 7.6.1-r0 -> 8.22.0-r0
+* run-postinsts: 1.0-r9 -> none
+* screen: 4.3.1-r0 -> 4.5.1-r0
+* seabios: none -> 1.9.1-r0
+* secure-vm: 1.0-r0 -> 1.0-r0
+* selinux-load: 1.0-r0 -> 1.0-r0
+* shadow: 4.2.1-r3 -> 4.2.1-r3
+* shim: none -> 14+git0+3ad44002b7-r0
+* strace: 4.10-r0 -> 4.16-r0
+* surfman: 0+git0+c26015150d-r0 -> 0+git0+3263678cd1-r0
+* svirt-interpose: 1.0-r0 -> 1.0-r0
+* sysfsutils: 2.1.0-r5 -> 2.1.0-r5
+* sysvinit: 2.86-r61 -> 2.88dsf-r14
+* tboot: 1.9.5-r1 -> 1.9.5-r1
+* tcl: 8.6.4-r0 -> 8.6.6-r0
+* thin-provisioning-tools: none -> 0.6.3-r0
+* tpm2-tools: git.0+33cd0d966f-r0 -> git.0+33cd0d966f-r0
+* tpm-tools: 1.3.9-r0 -> 1.3.9-r0
+* trousers: 0.3.14-r0 -> 0.3.14-r0
+* udbus: 0+git0+c47783e944-r6 -> 0+git0+c47783e944-r0
+* udev: 182-r9.4.1 -> none
+* uid: 0+git0+85bdfe0334-r0 -> git-r0
+* update-alternatives-opkg: 0.1.8+git0+53274f0875-r0 -> none
+* updatemgr: 0+git0+3a04bb9054-r0 -> 0+git0+1879d7ca2c-r0
+* update-rc.d: 0.7-r5 -> none
+* upgrade-db: 0+git0+3a04bb9054-r0 -> 0+git0+1879d7ca2c-r0
+* usb-modeswitch: 20140529-r0 -> 20170205-r0
+* usbutils: 007-r0.1 -> 008-r0
+* util-linux: 2.26.2-r0.3 -> 2.29.1-r0
+* v4v-module: git0+28423277b9-r0 -> git0+c0c98489b4-r0
+* vbetool: none -> 1.2.2-r0
+* vbetool-xc: 1.1-r3 -> none
+* vhd-scripts: 1.0-r0 -> 1.0-r0
+* vim-tiny: 7.4.769-r0.1 -> 8.0.0427-r0
+* vusb-daemon: 0+git0+d6bd98722b-r0 -> 0+git0+f0275111fc-r0
+* wget: 1.16.3-r0 -> 1.19.1-r0
+* xcpmd: 0+git0+b695a5af21-r0 -> 0+git0+916b9bfc35-r0
+* xec: 0+git0+3a04bb9054-r0 -> 0+git0+1879d7ca2c-r0
+* xen: 4.6.6+git0+88be574300-r0 -> 4.9.3-pre+git0+85af12d841-r0
+* xenclient-boot-sound: 1.0-r0 -> 1.0-r0
+* xenclient-caps: 1.0-r0 -> 1.0-r0
+* xenclient-config-access: 1.0-r0 -> 1.0-r0
+* xenclient-console-keymaps: 1.0-r0 -> 1.0-r0
+* xenclient-cryptdisks: 1.0-r0 -> 1.0-r0
+* xenclient-dom0-tweaks: 1.0-r4.0 -> 1.0-r4.0
+* xenclient-eula: 1.0-r0 -> 1.0-r0
+* xenclient-feed-configs: 1340-r15 -> 1642-r15
+* xenclient-get-config-key: 1.0-r0 -> 1.0-r0
+* xenclient-input-daemon: 0+git0+f3129caa93-r0 -> 0+git0+081e565e74-r0
+* xenclient-keyboard-list: 1.0-r0 -> 1.0-r0
+* xenclient-language-sync: 1.0-r0 -> 1.0-r0
+* xenclient-nwd: 0+git0+6ee8cc614b-r0 -> 0+git0+6ee8cc614b-r0
+* xenclient-pcrdiff: 1.0-r0 -> 1.0-r0
+* xenclient-preload-hs-libs: 1.0-r0 -> 1.0-r0
+* xenclient-repo-certs: 1.0-r0 -> 1.0-r0
+* xenclient-root-ro: 1.0-r0 -> 1.0-r0
+* xenclient-sec-scripts: 1.0-r0 -> 1.0-r0
+* xenclient-splash-images: 1.0-r0 -> 1.0-r0
+* xenclient-toolstack: 0+git0+54e476cc75-r0 -> 0+git0+7702618789-r0
+* xenclient-tpm-scripts: 1.0-r0 -> 1.0-r0
+* xenclient-tpm-setup: 1.0-r0 -> 1.0-r0
+* xenclient-udev-force-discreet-net-to-eth0: 1.0-r0 -> 1.0-r0
+* xenmgr: 0+git0+3a04bb9054-r0 -> 0+git0+1879d7ca2c-r0
+* xenmgr-data: 0+git0+0f847a66d7-r0 -> 0+git0+b0490a4aa5-r0
+
+==== Package upgrades: UIVM
+acpid: 2.0.23-r0 -> 2.0.28-r0
+adwaita-icon-theme: 3.16.2.1-r0 -> 3.22.0-r0
+alsa-conf: 1.0.29-r0.1 -> 1.1.3-r0
+anthy: 9100e-r3 -> 9100e-r3
+aspell: 0.60.6.1-r1 -> 0.60.6.1-r1
+audit: 2.4.4-r8 -> 2.7.6-r0
+base-files: 3.0.14-r92xc10 -> 3.0.14-r89
+base-passwd: 3.5.29-r0 -> none
+bash: 4.3.30-r0 -> 4.3.30-r0
+busybox: 1.23.2-r0.1 -> 1.24.1-r0
+bzip2: 1.0.6-r5 -> 1.0.6-r5
+consolekit: 0.4.6-r0.1 -> 0.4.6-r0.1
+coreutils: 8.24-r0.1 -> 8.26-r0.1
+dbus-1: 1.8.20-r0.1 -> 1.10.14-r0
+dbus-wait: 0.1+git0+6cc6077a36-r2 -> 0.1+git0+6cc6077a36-r2
+e2fsprogs: 1.42.9-r0.1 -> 1.43.4-r0
+enchant: 1.6.0-r3 -> 1.6.0-r3
+exo: 0.10.6-r0 -> 0.11.2-r0
+fontconfig-utils: 2.11.94-r0 -> 2.12.1-r0
+formfactor: 0.0-r45 -> 0.0-r45
+garcon: 0.4.0-r0 -> 0.4.0-r0
+gconf: 3.2.6-r0 -> 3.2.6-r0
+glib-networking: 2.44.0-r0.1 -> 2.50.0-r0
+glibc: 2.22-r0 -> 2.25-r0
+gnome-keyring: 2.32.1-r12 -> 2.32.1-r12
+grep: 2.21-r0 -> 3.0-r0
+gtk+-locale: 2.24.28-r0.1 -> 2.24.31-r0
+gtk+3-locale: 3.16.6-r0 -> 3.22.8-r0
+gtk-xfce-engine: 3.2.0-r0 -> 3.2.0-r0
+gtk3-xfce-engine: 3.2.0-r0 -> 3.2.0-r0
+gzip: 1.6-r0 -> 1.8-r0
+hdparm: 9.48-r0 -> 9.51-r0
+hicolor-icon-theme: 0.15-r0.1 -> 0.15-r0.1
+iceauth: 1.0.7-r0 -> 1.0.7-r0
+init-ifupdown: 1.0-r7.1 -> 1.0-r7.1
+initscripts: 1.0-r155.1 -> 1.0-r155.1
+iso-codes-locale: 3.58-r0 -> 3.74-r0
+kbd: 2.0.2-r0 -> 2.0.4-r0
+kernel: 4.9.40-r0 -> 4.14.57-r0
+kmod: 21+git0+114ec87c85-r0.1 -> 23+git0+65a885df5f-r0.1
+ldd: 2.22-r0 -> 2.25-r0
+less: 479-r0 -> 487-r0
+libacl1: 2.2.52-r0 -> 2.2.52-r0
+libacpi0: 0.2-r6 -> 0.2-r6
+libanthy0: 9100e-r3 -> 9100e-r3
+libarchive13: 3.1.2-r0 -> none
+libasound2: 1.0.29-r0.1 -> 1.1.3-r0
+libaspell15: 0.60.6.1-r1 -> 0.60.6.1-r1
+libatk-1.0: 2.16.0-r0 -> 2.22.0-r0
+libatk-bridge-2.0-0: 2.16.0-r0 -> 2.22.0-r0
+libatspi-locale: 2.16.0-r0 -> 2.22.0-r0
+libatspi0: 2.16.0-r0 -> 2.22.0-r0
+libattr1: 2.4.47-r0 -> 2.4.47-r0
+libblkid1: 2.26.2-r0.3 -> 2.29.1-r0
+libbudgetvhd: git0+522e688b19-r0 -> git0+522e688b19-r0
+libbz2-0: 1.0.6-r5 -> none
+libc6: 2.22-r0 -> 2.25-r0
+libcairo-gobject2: 1.14.2-r0 -> 1.14.8-r0
+libcairo2: 1.14.2-r0 -> 1.14.8-r0
+libcanberra: 0.30-r0 -> 0.30-r0
+libcap2: 2.24-r0 -> 2.25-r0
+libcom-err2: 1.42.9-r0.1 -> 1.43.4-r0
+libcrypto1.0.2: 1.0.2k-r0 -> 1.0.2n-r0
+libdbus-1-3: 1.8.20-r0.1 -> 1.10.14-r0
+libdbus-glib-1-2: 0.104-r0 -> 0.108-r0
+libdrm: 2.4.65-r0 -> 2.4.75-r0
+libe2p2: 1.42.9-r0.1 -> 1.43.4-r0
+libepoxy0: 1.3.1-r0 -> 1.4.0-r0
+liberation-fonts: 1:1.04-r4.1 -> 1:1.04-r4.1
+libestr0: 0.1.10-r0 -> 0.1.10-r0
+libexpat1: 2.1.0-r0 -> 2.2.0-r0
+libext2fs2: 1.42.9-r0.1 -> 1.43.4-r0
+libfakekey0: 0.0+git0+e327ff049b-r0 -> 0.0+git0+e327ff049b-r0
+libffi6: 3.2.1-r0 -> 3.2.1-r0
+libflac8: 1.3.1-r0 -> 1.3.2-r0
+libfontconfig1: 2.11.94-r0 -> 2.12.1-r0
+libfontenc1: 1:1.1.3-r0 -> 1:1.1.3-r0
+libfreetype6: 2.6-r0 -> 2.7.1-r0
+libgcc1: 5.2.0-r0 -> 6.4.0-r0
+libgcrypt: 1.6.3-r1.1 -> 1.7.6-r0
+libgdk-pixbuf-2.0: 2.30.8-r0 -> 2.36.5-r0
+libgl-mesa: 2:10.6.3-r0 -> 2:17.0.2-r0
+libglapi0: 2:10.6.3-r0 -> 2:17.0.2-r0
+libglib-2.0: 1:2.44.1-r0.1 -> 1:2.50.3-r0
+libgmp10: 6.0.0-r0 -> 6.1.2-r0
+libgnome-keyring: 2.32.0-r3 -> 2.32.0-r3
+libgnutls: 3.3.17.1-r0 -> 3.5.9-r0
+libgpg-error: 1.19-r0 -> 1.26-r1
+libgtk-2.0: 2.24.28-r0.1 -> 2.24.31-r0
+libgtk-3.0: 3.16.6-r0 -> 3.22.8-r0
+libgudev-1.0-0: 182-r9.4.1 -> 231-r0
+libharfbuzz0: 1.0.2-r0 -> 1.4.1-r0
+libicbinn-1.0-0: 0+git0+4b4b14b9d3-r0 -> 0+git0+760f5b3553-r0
+libicbinn-1.0-client: 0+git0+4b4b14b9d3-r0 -> 0+git0+760f5b3553-r0
+libice6: 1:1.0.9-r0 -> 1:1.0.9-r0
+libicu: 55.1-r0 -> 58.2-r0
+libjavascriptcoregtk-1.0-0: 1.8.3-r1.2 -> 1.8.3-r1.2
+libjpeg9: 9a-r0 -> none
+libjson-c2: 0.12-r0 -> none
+libkmod2: 21+git0+114ec87c85-r0.1 -> 23+git0+65a885df5f-r0.1
+liblogging: 1.0.5-r0 -> 1.0.5-r0
+libltdl7: 2.4.6-r0 -> 2.4.6-r0
+libmozjs: 17.0.0-r0 -> 17.0.0-r0
+libncurses5: 5.9-r15.1 -> 6.0+20161126-r0
+libncursesw5: 5.9-r15.1 -> 6.0+20161126-r0
+libnm: 0.9.2.0-r5.1 -> 0.9.2.0-r0
+libnotify: 0.7.6-r0 -> 0.7.7-r0
+libogg0: 1.3.2-r0 -> 1.3.2-r0
+libopkg1: 1:0.3.0-r0.1 -> 1:0.3.4-r0.1
+libpam: 1.2.1-r5.1 -> 1.3.0-r5
+libpci3: 3.3.1-r0.1 -> 3.5.2-r0
+libpciaccess0: 0.12.902-r0.1 -> 0.13.4-r0
+libpcre1: 8.38-r09 -> 8.40-r0
+libpixman-1-0: 1:0.32.6-r0 -> 1:0.34.0-r0
+libpng16-16: 1.6.17-r0 -> 1.6.28-r0
+libpopt: 1.16-r3 -> 1.16-r3
+libpulse0: 6.0-r0 -> 10.0-r0
+libpulsecommon: 6.0-r0 -> 10.0-r0
+libselinux1: 2.4-r0.1 -> 2.7-r0
+libsemanage1: 2.4-r0 -> 2.7-r0
+libsepol1: 2.4-r0.1 -> 2.7-r0
+libsm6: 1:1.2.2-r0.1 -> 1:1.2.2-r0.1
+libsndfile1: 1.0.27-r0 -> 1.0.27-r0
+libsoup: 2.50.0-r0 -> 2.56.0-r0
+libsqlite3-0: 3:3.8.10.2-r0 -> 3:3.17.0-r0
+libss2: 1.42.9-r0.1 -> 1.43.4-r0
+libstartup-notification-1-0: 0.12-r2 -> 0.12-r2
+libstdc++6: 5.2.0-r0 -> 6.4.0-r0
+libsysfs2: 2.1.0-r5 -> 2.1.0-r5
+libtinfo5: 5.9-r15.1 -> 6.0+20161126-r0
+libtirpc: 0.2.2-r0 -> 1.0.2-r0
+libudev: 182-r9.4.1 -> 3.2.1-r0
+libuim0: 1.3.1-r4 -> 1.8.6-r0
+libusb-1.0-0: 1.0.19-r0 -> 1.0.21-r0
+libustr-1.0-1: 1.0.4-r2 -> none
+libuuid1: 2.26.2-r0.3 -> 2.29.1-r0
+libv4v: git0+28423277b9-r0 -> git0+c0c98489b4-r0
+libvorbis: 1.3.5-r0 -> 1.3.5-r0
+libwebkitgtk: 1.8.3-r1.2 -> 1.8.3-r1.2
+libwnck-1: 2.31.0-r0 -> 2.31.0-r0
+libx11: 1:1.6.3-r0 -> 1:1.6.4-r0
+libxau6: 1:1.0.8-r0 -> 1:1.0.8-r0
+libxaw7-7: 1:1.0.13-r2 -> 1:1.0.13-r2
+libxcb: 0.4.0-r0 -> 0.4.0-r0
+libxcb1: 1.11-r0.1 -> 1.12-r0
+libxcomposite1: 1:0.4.4-r0 -> 1:0.4.4-r0
+libxcursor1: 1:1.1.14-r0 -> 1:1.1.14-r0
+libxdamage1: 1:1.1.4-r0 -> 1:1.1.4-r0
+libxdmcp6: 1:1.1.2-r0 -> 1:1.1.2-r0
+libxenstore3.0: 4.6.6-r0 -> 4.9.3-pre-r0
+libxext6: 1:1.3.3-r0 -> 1:1.3.3-r0
+libxfce4ui: 4.12.1-r0 -> 4.12.1-r0
+libxfce4util: 4.12.1-r0 -> 4.12.1-r0
+libxfixes3: 1:5.0.1-r0 -> 1:5.0.3-r0
+libxfont1: 1:1.5.1-r0 -> 1:1.5.2-r0
+libxft2: 1:2.3.2-r0 -> 1:2.3.2-r0
+libxi6: 1:1.4.5-r0 -> 1:1.4.5-r0
+libxkbfile1: 1:1.0.9-r0 -> 1:1.0.9-r0
+libxklavier16: 5.0-r0.1 -> 5.0-r0.1
+libxml2: 2.9.2-r0 -> 2.9.4-r0
+libxmu6: 1:1.1.2-r0 -> 1:1.1.2-r0
+libxpm4: 1:3.5.11-r0 -> 1:3.5.12-r0
+libxrandr2: 1:1.3.2-r0 -> 1:1.3.2-r0
+libxrender1: 1:0.9.9-r0 -> 1:0.9.10-r0
+libxres1: 1:1.0.7-r0 -> 1:1.0.7-r0
+libxslt: 1.1.28-r0 -> 1.1.29-r0
+libxt6: 1:1.1.5-r0 -> 1:1.1.5-r0
+libxtst6: 1:1.2.2-r0 -> 1:1.2.3-r0
+libxxf86vm1: 1:1.1.4-r0 -> 1:1.1.4-r0
+libz1: 1.2.8-r0 -> 1.2.11-r0
+locale-base: 2.22-r0 -> 2.25-r0
+logrotate: 3.9.1-r0 -> 3.9.1-r0
+machine-host: 1.0-r0 -> 1.0-r0
+matchbox-keyboard: 0.0+git0+217f1bfe14-r4.1 -> 0.1.1-r0
+mobile-broadband-provider-info: 1:20140618+gitr0+d06ebd314a-r0 -> 1:20151214-r0
+modules: 1.0-r1 -> 1.0-r1
+modutils-initscripts: 1.0-r7 -> 1.0-r7
+nano: 2.2.5-r3.0 -> 2.7.4-r0
+ncurses-terminfo: 5.9-r15.1 -> 6.0+20161126-r0
+netbase: 1:5.3-r0 -> 1:5.4-r0
+nettle: 3.1.1-r0 -> 3.3-r0
+network-manager-applet: 0.9.2.0-r0.1 -> 0.9.2.0-r0
+networkmanager-certs: 1.0-r0 -> 1.0-r0
+networkmanager: 0.9.2.0-r5.1 -> 0.9.2.0-r0
+nspr: 4.10.8-r1 -> 4.18-r0
+openssh: 7.5p1-r0.5 -> 7.5p1-r0
+openssl-conf: 1.0.2k-r0 -> 1.0.2n-r0
+opkg: 1:0.3.0-r0.1 -> 1:0.3.4-r0.1
+opkg-arch-config: 1.0-r1 -> 1.0-r1
+packagegroup-base: 1.0-r83.1 -> 1.0-r83.1
+packagegroup-core-boot: 1.0-r17 -> 1.0-r17
+packagegroup-distro-base: 1.0-r83.1 -> 1.0-r83.1
+packagegroup-machine-base: 1.0-r83.1 -> 1.0-r83.1
+packagegroup-xenclient-common: 1.0-r0 -> 1.0-r0
+packagegroup-xenclient-xfce-minimal: 1.0-r2 -> 1.0-r2
+pam-plugins: 1.2.1-r5.1 -> 1.3.0-r5
+pango: 1.36.8-r0.1 -> 1.40.3-r0
+pango-module-basic-fc: 1.36.8-r0.1 -> none
+pciutils: 3.3.1-r0.1 -> 3.5.2-r0
+pm-utils: 1.4.1-r1 -> 1.4.1-r1
+polkit: 0.113-r0 -> 0.113-r0
+procps: 3.3.10-r0 -> 3.3.12-r0
+resized: 0+git0+10802fe68f-r0 -> 0+git0+10802fe68f-r0
+rgb: 1:1.0.6-r0 -> 1:1.0.6-r0
+rsync: 3.1.1-r0r1 -> 3.1.2-r0
+rsyslog: 7.6.1-r0 -> 8.22.0-r0
+run-postinsts: 1.0-r9 -> none
+setxkbmap: 1:1.3.1-r0 -> 1:1.3.1-r0
+shadow: 4.2.1-r3 -> 4.2.1-r3
+shared-mime-info: 1.4-r0 -> 1.8-r0
+shutdown-screen: 0.1-r0 -> 0.1-r0
+sound-theme-freedesktop: 0.8-r0 -> 0.8-r0
+strace: 4.10-r0 -> 4.16-r0
+surf: 0.7-r0 -> 0.7-r0
+sysfsutils: 2.1.0-r5 -> 2.1.0-r5
+sysvinit: 2.86-r61 -> 2.88dsf-r14
+ttf-dejavu: 2.35-r7.1 -> 2.37-r7
+udev: 182-r9.4.1 -> none
+eudev: 182-r9.4.1 -> 3.2.1-r0
+uim: 1.3.1-r4 -> 1.8.6-r0
+update-alternatives-opkg: 0.1.8+git0+53274f0875-r0 -> none
+update-rc.d: 0.7-r5 -> none
+upower: 0.9.14-r2 -> 0.99.7-r0
+util-linux: 2.26.2-r0.3 -> 2.29.1-r0
+v4v-module: git0+28423277b9-r0 -> git0+c0c98489b4-r0
+vim-tiny: 7.4.769-r0.1 -> 8.0.0427-r0
+xblanker: 0+git0+80de9b1ed3-r0 -> 0+git0+80de9b1ed3-r0
+xdotool: 2.20100818.3004-r0 -> 2.20100818.3004-r0
+xen: 4.6.6-r0 -> 4.9.3-pre-r0
+xenclient-console-keymaps: 1.0-r0 -> 1.0-r0
+xenclient-feed-configs: 1340-r15 -> 1644-r15
+xenclient-keyboard-list: 1.0-r0 -> none
+xenclient-keymap-sync: 1.0-r0 -> none
+xenclient-uivm-xsessionconfig: 0.0.2-r26 -> 0.0.2-r0
+xenfb2: 0+git0+8417360fca-r0 -> 0+git0+fad222619c-r0
+xf86-input-evdev: 2:2.6.0-r17.0 -> 2:2.6.0-r17.0
+xf86-input-keyboard: 2:1.6.1-r17.0 -> 2:1.6.1-r17.0
+xf86-input-mouse: 2:1.7.1-r17.0 -> 2:1.7.1-r17.0
+xf86-video-fbdev: 2:0.4.2-r17.0.1 -> 2:0.4.2-r17.0.1
+xfce4-appfinder: 4.12.0-r0 -> 4.12.0-r0
+xfce4-notifyd: 0.2.4-r0 -> 0.3.6-r0
+xfce4-session: 4.12.1-r0 -> 4.12.1-r0
+xfce4-settings: 4.12.0+git0+c6683cb2cf-r0 -> 4.12.0+git0+c6683cb2cf-r0
+xfconf: 4.12.0-r0 -> 4.12.1-r0
+xconf: 4.12.0-r0 -> 4.12.1-r0
+xfwm4: 4.12.3-r0 -> 4.12.4-r0
+xinit: 1:1.3.4-r0 -> 1:1.3.4-r0
+xkbcomp: 1.3.0-r8.0 -> 1.3.1-r8.0
+xkeyboard-config: 1.4-r4 -> 1.4-r4
+xprop: 1:1.2.2-r0 -> 1:1.2.2-r0
+xrandr: 1:1.3.5-r1 -> 1:1.3.5-r1
+xserver-xf86-config: 0.1-r33.1 -> 0.1-r33.1
+xserver-xorg: 2:1.11.2-r1.2 -> 2:1.11.2-r1.2
+xterm: 277-r0.1 -> 325-r0
+acl-locale: none -> 2.2.52-r0
+attr-locale: none -> 2.4.47-r0
+dhcp-client: none -> 4.3.5-r0
+dnsmasq: none -> 2.78-r0
+elfutils-locale: none -> 0.168-r0
+file: none -> 5.30-r0
+gnome-bluetooth: none -> 3.18.2-r0
+gnome-theme-adwaita: none -> 3.22.2-r0
+gnome-themes-standard-locale: none -> 3.22.2-r0
+iproute2: none -> 4.10.0-r0.2
+iptables: none -> 1.6.1-r0
+libarchive: none -> 3.2.2-r0
+libbz2-1: none -> 1.0.6-r5
+libcap-ng0: none -> 0.7.8-r0
+libdrm2: none -> 2.4.75-r0
+libedit0: none -> 20170329-3.1-r0
+libelf1: none -> 0.168-r0
+libfastjson4: none -> 0.99.4-r0
+libidn: none -> 1.33-r0
+libjpeg62: none -> 1:1.5.1-r0
+libmount1: none -> 2.29.1-r0
+libnl: none -> 1:3.2.29-r0
+libsolv0: none -> 0.6.26-r0
+libunistring2: none -> 0.9.7-r0
+libxinerama1: none -> 1:1.1.3-r0
+libxmuu1: none -> 1:1.1.2-r0
+mesa-megadriver: none -> 2:17.0.2-r0
+pulseaudio: none -> 10.0-r0
+rpcbind: none -> 0.2.4-r0
+wireless-tools: none -> 1:30.pre9-r0
+wpa-supplicant: none -> 2.6-r0
+xrdb: none -> 1.1.0-r0
+
+==== Package upgrades: NDVM (Network)
+
+* audit: 2.4.4-r8 -> 2.7.6-r0
+* base-files: 3.0.14-r92xc10 -> 3.0.14-r89
+* base-passwd: 3.5.29-r0 -> none
+* bash: 4.3.30-r0 -> 4.3.30-r0
+* bridge-utils: 1.5-r0 -> 1.5-r0
+* busybox: 1.23.2-r0.1 -> 1.24.1-r0
+* bzip2: 1.0.6-r5 -> 1.0.6-r5
+* carrier-detect: 0+git0+b695a5af21-r0 -> 0+git0+916b9bfc35-r0
+* consolekit: none -> 0.4.6-r0.1
+* coreutils: 8.24-r0.1 -> 8.26-r0.1
+* db-tools: 0+git0+3a04bb9054-r0 -> 0+git0+1879d7ca2c-r0
+* dbus-1: 1.8.20-r0.1 -> 1.10.14-r0
+* dhcp-client: 4.3.2-r0 -> 4.3.5-r0
+* dnsmasq: 2.75-r0.1 -> 2.78-r0
+* e2fsprogs: 1.42.9-r0.1 -> 1.43.4-r0
+* ethtool: 4.0-r0 -> 4.8-r0
+* eudev: 182-r9.4.1 -> 3.2.1-r0
+* file: none -> 5.30-r0
+* ghc-runtime: 6.12.1-r0 -> none
+* glibc: 2.22-r0 -> 2.25-r0
+* gzip: 1.6-r0 -> 1.8-r0
+* hdparm: 9.48-r0 -> 9.51-r0
+* init-ifupdown: 1.0-r7.1 -> 1.0-r7.1
+* initscripts: 1.0-r155.1 -> 1.0-r155.1
+* iproute2: 4.1.1-r0.2 -> 4.10.0-r0.2
+* ipsec-tools: 0.8.2-r0 -> 0.8.2-r0
+* iptables: 1.4.21-r0 -> 1.6.1-r0
+* iputils-ping: s20121221-r0 -> s20151218-r0
+* kernel: 4.9.40-r0 -> 4.14.57-r0
+* kmod: 21+git0+114ec87c85-r0.1 -> 23+git0+65a885df5f-r0.1
+* ldd: 2.22-r0 -> 2.25-r0
+* less: 479-r0 -> 487-r0
+* libacl1: 2.2.52-r0 -> 2.2.52-r0
+* libarchive13: 3.1.2-r0 -> none
+* libarchive: none -> 3.2.2-r0
+* libattr1: 2.4.47-r0 -> 2.4.47-r0
+* libblkid1: 2.26.2-r0.3 -> 2.29.1-r0
+* libbudgetvhd: git0+522e688b19-r0 -> git0+522e688b19-r0
+* libbz2-0: 1.0.6-r5 -> none
+* libbz2-1: none -> 1.0.6-r5
+* libc6: 2.22-r0 -> 2.25-r0
+* libcap2: 2.24-r0 -> 2.25-r0
+* libcap-ng0: 0.7.7-r0 -> 0.7.8-r0
+* libcom-err2: 1.42.9-r0.1 -> 1.43.4-r0
+* libcrypto1.0.2: 1.0.2k-r0 -> 1.0.2n-r0
+* libdbus-1-3: 1.8.20-r0.1 -> 1.10.14-r0
+* libdbus-glib-1-2: 0.104-r0 -> 0.108-r0
+* libe2p2: 1.42.9-r0.1 -> 1.43.4-r0
+* libelf1: none -> 0.168-r0
+* libestr0: 0.1.10-r0 -> 0.1.10-r0
+* libexpat1: 2.1.0-r0 -> 2.2.0-r0
+* libext2fs2: 1.42.9-r0.1 -> 1.43.4-r0
+* libfastjson4: none -> 0.99.4-r0
+* libffi6: 3.2.1-r0 -> 3.2.1-r0
+* libgcc1: none -> 6.4.0-r0
+* libgcrypt: 1.6.3-r1.1 -> 1.7.6-r0
+* libglib-2.0: 1:2.44.1-r0.1 -> 1:2.50.3-r0
+* libgmp10: 6.0.0-r0 -> 6.1.2-r0
+* libgnutls: 3.3.17.1-r0 -> 3.5.9-r0
+* libgpg-error: 1.19-r0 -> 1.26-r1
+* libgudev-1.0-0: 182-r9.4.1 -> 231-r0
+* libicbinn-1.0-0: 0+git0+4b4b14b9d3-r0 -> 0+git0+760f5b3553-r0
+* libicbinn-1.0-client: 0+git0+4b4b14b9d3-r0 -> 0+git0+760f5b3553-r0
+* libidn: none -> 1.33-r0
+* libjson-c2: 0.12-r0 -> none
+* libkmod2: 21+git0+114ec87c85-r0.1 -> 23+git0+65a885df5f-r0.1
+* liblogging: 1.0.5-r0 -> 1.0.5-r0
+* libmbim: none -> 1.14.0-r0
+* libmount1: 2.26.2-r0.3 -> 2.29.1-r0
+* libmozjs: none -> 17.0.0-r0
+* libncurses5: 5.9-r15.1 -> 6.0+20161126-r0
+* libncursesw5: 5.9-r15.1 -> 6.0+20161126-r0
+* libnl: 1:3.2.25-r1 -> 1:3.2.29-r0
+* libnm: 0.9.2.0-r5.1 -> 0.9.2.0-r0
+* libopkg1: 1:0.3.0-r0.1 -> 1:0.3.4-r0.1
+* libpam: 1.2.1-r5.1 -> 1.3.0-r5
+* libpcap1: 1.6.2-r0 -> 1.8.1-r0
+* libpci3: 3.3.1-r0.1 -> 3.5.2-r0
+* libpcre1: 8.38-r09 -> 8.40-r0
+* libpopt: 1.16-r3 -> 1.16-r3
+* libqmi: none -> 1.16.0-r0
+* libreadline6: 6.3-r0.1 -> none
+* libreadline7: none -> 7.0-r0
+* libselinux1: 2.4-r0.1 -> 2.7-r0
+* libselinux-bin: 2.4-r0.1 -> 2.7-r0
+* libsemanage1: 2.4-r0 -> 2.7-r0
+* libsepol1: 2.4-r0.1 -> 2.7-r0
+* libsolv0: none -> 0.6.26-r0
+* libss2: 1.42.9-r0.1 -> 1.43.4-r0
+* libstdc++6: none -> 6.4.0-r0
+* libsysfs2: 2.1.0-r5 -> 2.1.0-r5
+* libtinfo5: 5.9-r15.1 -> 6.0+20161126-r0
+* libtirpc: 0.2.2-r0 -> 1.0.2-r0
+* libudev: 182-r9.4.1 -> 3.2.1-r0
+* libunistring2: none -> 0.9.7-r0
+* libustr-1.0-1: 1.0.4-r2 -> none
+* libuuid1: 2.26.2-r0.3 -> 2.29.1-r0
+* libv4v: git0+28423277b9-r0 -> git0+c0c98489b4-r0
+* libx11: 1:1.6.3-r0 -> 1:1.6.4-r0
+* libxau6: 1:1.0.8-r0 -> 1:1.0.8-r0
+* libxcb1: 1.11-r0.1 -> 1.12-r0
+* libxdmcp6: 1:1.1.2-r0 -> 1:1.1.2-r0
+* libxenstore3.0: 4.6.6-r0 -> 4.9.3-pre-r0
+* libxml2: 2.9.2-r0 -> 2.9.4-r0
+* libz1: 1.2.8-r0 -> 1.2.11-r0
+* linux-firmware: 1:0.0+git0+6f5257c629-r0 -> 1:0.0+git0+6f5257c629-r0
+* locale-base: 2.22-r0 -> 2.25-r0
+* logrotate: 3.9.1-r0 -> 3.9.1-r0
+* modemmanager: 0.3-r0 -> 1.6.4-r0
+* modules: 1.0-r1 -> 1.0-r1
+* modutils-initscripts: 1.0-r7 -> 1.0-r7
+* nano: 2.2.5-r3.0 -> 2.7.4-r0
+* ncurses-terminfo: 5.9-r15.1 -> 6.0+20161126-r0
+* netbase: 1:5.3-r0 -> 1:5.4-r0
+* nettle: 3.1.1-r0 -> 3.3-r0
+* networkmanager: 0.9.2.0-r5.1 -> 0.9.2.0-r0
+* networkmanager-certs: 1.0-r0 -> 1.0-r0
+* nspr: none -> 4.18-r0
+* openssh: 7.5p1-r0.5 -> 7.5p1-r0
+* openssl-conf: 1.0.2k-r0 -> 1.0.2n-r0
+* opkg: 1:0.3.0-r0.1 -> 1:0.3.4-r0.1
+* opkg-arch-config: 1.0-r1 -> 1.0-r1
+* packagegroup-base: 1.0-r83.1 -> 1.0-r83.1
+* packagegroup-core-boot: 1.0-r17 -> 1.0-r17
+* packagegroup-distro-base: 1.0-r83.1 -> 1.0-r83.1
+* packagegroup-machine-base: 1.0-r83.1 -> 1.0-r83.1
+* packagegroup-xenclient-common: 1.0-r0 -> 1.0-r0
+* pam-plugins: 1.2.1-r5.1 -> 1.3.0-r5
+* pciutils: 3.3.1-r0.1 -> 3.5.2-r0
+* policycoreutils: 2.4-r0 -> 2.7-r0
+* polkit: none -> 0.113-r0
+* ppp: 2.4.7-r0 -> 2.4.7-r0
+* procps: 3.3.10-r0 -> 3.3.12-r0
+* refpolicy-mcs: 2.20141203-r0.3 -> 2.20170204-r0
+* rpcbind: none -> 0.2.4-r0
+* rsync: 3.1.1-r0r1 -> 3.1.2-r0
+* rsyslog: 7.6.1-r0 -> 8.22.0-r0
+* run-postinsts: 1.0-r9 -> none
+* shadow: 4.2.1-r3 -> 4.2.1-r3
+* strace: 4.10-r0 -> 4.16-r0
+* sysfsutils: 2.1.0-r5 -> 2.1.0-r5
+* sysvinit: 2.86-r61 -> 2.88dsf-r14
+* udev: 182-r9.4.1 -> none
+* update-alternatives-opkg: 0.1.8+git0+53274f0875-r0 -> none
+* update-rc.d: 0.7-r5 -> none
+* util-linux: 2.26.2-r0.3 -> 2.29.1-r0
+* v4v-module: git0+28423277b9-r0 -> git0+c0c98489b4-r0
+* vim-tiny: 7.4.769-r0.1 -> 8.0.0427-r0
+* wget: 1.16.3-r0 -> 1.19.1-r0
+* wireless-tools: 1:30.pre9-r0 -> 1:30.pre9-r0
+* wpa-supplicant: 2.6-r0 -> 2.6-r0
+* xen: 4.6.6-r0 -> 4.9.3-pre-r0
+* xenclient-dbusbouncer: 1.0-r0 -> 1.0-r0
+* xenclient-feed-configs: 1340-r15 -> 1642-r15
+* xenclient-ndvm-tweaks: 1.0-r0 -> 1.0-r0
+* xenclient-nws: 0+git0+6ee8cc614b-r0 -> 0+git0+6ee8cc614b-r0
+* xenclient-toolstack: 0+git0+54e476cc75-r0 -> 0+git0+7702618789-r0
+* xenclient-udev-force-discreet-net-to-eth0: 1.0-r0 -> 1.0-r0

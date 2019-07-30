@@ -1,0 +1,61 @@
+The 8.0.1 release is a tagged checkpoint of the stable-8 branch.
+
+- OpenEmbedded: Pyro
+  * openembedded-core: link:http://git.openembedded.org/openembedded-core/commit/?id=819aa151bd634122a46ffdd822064313c67f5ba5[819aa151bd build-appliance-image: Update to pyro head revision]
+  * meta-openembedded: link:http://git.openembedded.org/openembedded-core/commit/?id=9eaebc6e783f1394bb5444326cd05a976b3122e9[9eaebc6e7 wireshark: Update Package to 2.2.12]
+  * meta-intel: link:http://git.yoctoproject.org/cgit/cgit.cgi/meta-intel/commit/?id=9b37952d6af36358b6397cedf3dd53ec8962b6bf[9b37952 linux-intel/4.9: Update to v4.9.81]
+  * meta-java: link:http://git.yoctoproject.org/cgit/cgit.cgi/meta-java/commit/?id=0c27b120aa508e4bb41394b8dd3645949a611128[0c27b12 icedtea-native: Fix segmentation build during build]
+  * meta-selinux: link:http://git.yoctoproject.org/cgit/cgit.cgi/meta-selinux/commit/?id=b1dac7e2b26f869c991c6492aa7fa18eaa4b47f6[b1dac7e policycorutils: package files in base_sbindir.]
+  * meta-virtualization: link:http://git.yoctoproject.org/cgit/cgit.cgi/meta-virtualization/commit/?id=45ad257a1e4a6707c376d2f7eb26c3c8bdf03607[45ad257 go-fsnotify: switch to new repository on github]
+- Xen: 4.9.3
+  * xen: link:http://xenbits.xen.org/gitweb/?p=xen.git;a=commit;h=062052a149828acdc6cab7deb88ddc3e3438e400[062052a149 update Xen version to 4.9.3]
+- Linux kernels: 4.14.66
+  * linux link:https://github.com/torvalds/linux/commit/c5f7d3c4daf1[c5f7d3c4daf1 Linux 4.14.66]
+
+==== Measurement support
+
+OpenXT supports two modes of measurement. Each mode is enforced automatically depending on the boot method of the OpenXT installation (Legacy vs UEFI).
+
+As for Legacy or UEFI support, it is not currently possible to transistion or upgrade an existing OpenXT installation from Legacy to UEFI, therefore it is not possible to change an existing measurement scheme or forward seal against a different one.
+
+===== Legacy boot
+
+Legacy installation will perform DRTM measurement using TBoot. It requires a compatible TPM chip and TXT to be enabled in the BIOS before installing OpenXT.
+
+===== UEFI
+
+UEFI installation will perform SRTM measurement. It requires a compatible TPM chip.
+
+==== Package upgrades: Dom0
+
+* audit: 2.7.6-r0 -> 2.8.4-r0
+* intel-microcode: 20180312-r0 -> 20180807-r0
+* linux-kernel: 4.14.57-r0 -> 4.14.66-r0
+* libselinux: 2.7-r0 -> 2.8-r0
+* libsemanage1: 2.7-r0 -> 2.8-r0
+* libsepol1: 2.7-r0 -> 2.8-r0
+* xen: 4.9.3-pre+git0+85af12d841-r0 -> 4.9.3+git0+85af12d841-r0
+* policycoreutils: 2.7-r0 -> 2.8-r0
+* tboot: 1.9.5-r1 -> 1.9.6-r0
+* xenclient-feed-configs: 1648-r15 -> 1785-r15
+
+==== Package upgrades: UIVM
+
+* audit: 2.7.6-r0 -> 2.8.4-r0
+* linux-kernel: 4.14.57-r0 -> 4.14.66-r0
+* libselinux: 2.7-r0 -> 2.8-r0
+* libsemanage1: 2.7-r0 -> 2.8-r0
+* libsepol1: 2.7-r0 -> 2.8-r0
+* xen: 4.9.3-pre-r0 -> 4.9.3-r0
+* xenclient-feed-configs: 1648-r15 -> 1785-r15
+
+==== Package upgrades: NDVM (Network)
+
+* audit: 2.7.6-r0 -> 2.8.4-r0
+* linux-kernel: 4.14.57-r0 -> 4.14.66-r0
+* libselinux: 2.7-r0 -> 2.8-r0
+* libsemanage1: 2.7-r0 -> 2.8-r0
+* libsepol1: 2.7-r0 -> 2.8-r0
+* xen: 4.9.3-pre-r0 -> 4.9.3-r0
+* policycoreutils: 2.7-r0 -> 2.8-r0
+* xenclient-feed-configs: 1648-r15 -> 1785-r15

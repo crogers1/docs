@@ -163,8 +163,8 @@ Limited testing was conducted and published on the stable-8 branch. 8.0.1 releas
 
 ===== Tests logs
 
- * [Measurement](https://openxt.atlassian.net/wiki/spaces/TEST/pages/620789765/OpenXT+8.0+Measurement+test)
- * [OTA upgrade](https://openxt.atlassian.net/wiki/spaces/~eric-ch/pages/625967109/OTA+upgrade+test)
+ * https://openxt.atlassian.net/wiki/spaces/TEST/pages/620789765/OpenXT+8.0+Measurement+test[Measurement]
+ * https://openxt.atlassian.net/wiki/spaces/~eric-ch/pages/625967109/OTA+upgrade+test[OTA upgrade]
 
 <<<
 

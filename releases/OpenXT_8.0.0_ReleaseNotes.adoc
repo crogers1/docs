@@ -1525,7 +1525,7 @@ Testing
 
 ==== Test Criteria
 
-Limited testing was conducted and published on the stable-8 branch. 8.0.0 release Quality Assurance testing was conducted on downstream derrivatives which may include changes. The following list summarize publicly disclosed test results.
+Limited testing was conducted and published on the stable-8 branch. 8.0.0 release Quality Assurance testing was conducted on downstream derivatives which may include changes. The following list summarizes publicly disclosed test results.
 
 ===== HVM guests environments
  * Windows10 1709 64 bit

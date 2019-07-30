@@ -1,0 +1,160 @@
+==== QEMU Audio does not work in Windows/Linux VMs
+
+The default emulated audio device is an ac97 device and Windows 7 and later no longer packages an ac97 driver.
+
+The user has two options for audio,
+[horizontal]
+[width="5%"]
+*"ac97"*:: provides working audio with slight crackling
+   - Linux should detect and load ac97 driver.
+   - Windows, download and install drivers from Realtek.
+*"hda"*:: provides poor audio quality and severe crackling
+   - Linux should detect and load intel_hda driver.
+   - Windows automatically installs drivers
+
+To use "hda", you will need to enter the following in Dom0 terminal window,
+[source,sh]
+----
+db-write /vm/$( xec-vm -n "<vm name>" get uuid )/config/sound hda
+----
+
+* JIRA Issue: https://openxt.atlassian.net/browse/OXT-939[OXT-939]
+
+==== Nvidia Quadro NVS 310, PCI GPU pass-through
+
+Nvidia Quadro NVS 310 GPU passthrough is not supported in OpenXT 8.0.0.
+
+* JIRA Issue: https://openxt.atlassian.net/browse/OXT-1070[OXT-1070]
+
+==== Host S3 resume results in a panic early in Xen and reboot
+
+Host S3 is not supported in OpenXT 8.0.0.
+ 
+* JIRA Issue: https://openxt.atlassian.net/browse/OXT-1092[OXT-1092]
+
+==== Host S3 hangs on Broadwell and newer systems
+
+Host S3 is not supported in OpenXT 8.0.0.
+
+* JIRA Issue: https://openxt.atlassian.net/browse/OXT-1093[OXT-1093]
+
+==== More than 4 emulated IDE devices cause QEMU to fail to start
+
+OpenXT 8.0.0 limits a VM to a maximum of four emulated IDE devices (CD/DVD/HDD) being attached at one time.
+
+* JIRA Issue: https://openxt.atlassian.net/browse/OXT-1123[OXT-1123]
+
+==== Deleting a VM when a USB Device has attached with "Always use with this VM"
+
+If a USB device has been exclusively assigned to a VM and that VM is deleted, then the USB device will no longer be available to assign to another VM.
+
+It is recommended to disconnect any USB devices from a VM before deleting the VM.
+
+* JIRA Issue: https://openxt.atlassian.net/browse/OXT-930[OXT-930]
+
+==== Windows guest intermittently/randomly does not shut down
+
+During testing, it appears that the presence of the "scsifilt.sys" driver can inhibit Windows guests from properly shutting down.
+
+When attempting to shut down a Windows guest and it's state in the UIVM is "On" and not "Shutting Down", then the VM will need to be halted using the "Force Shutdown" option from the VMs menu in the UIVM.
+
+* JIRA Issue: https://openxt.atlassian.net/browse/OXT-1240[OXT-1240]
+
+==== Raw disk can no longer be assigned to VMs
+
+OpenXT 8.0.0 does not support RAW disk assignement to HVM guests with stub-domain.
+
+To assign a RAW disk to a guest:
+[source,sh]
+----
+xec-vm -n <vm-name> --disk <disk-id> set phys-type phy
+xec-vm -n <vm-name> --disk <disk-id> set phys-path <disk-image-path>
+----
+Then disable the stub-domain:
+[source,sh]
+----
+xec-vm -n <vm-name> set stubdom false
+----
+
+* JIRA Issue: https://openxt.atlassian.net/browse/OXT-1356[OXT-1356]
+
+==== UIVM creation fails at boot randomly
+
+In relatively rare occurences, UIVM may fail to start.
+Two sets of symptoms have been identified.
+- xec-vm may report UIVM stuck in "creating" state
+- UIVM kernel may report module i915 OOPs'ed
+
+In both cases, restarting UIVM is the recommended work-around. Should a remote
+connection not be available, restarting the platform is the only option.
+
+* JIRA Issue: https://openxt.atlassian.net/browse/OXT-1235[IXT-1235]
+
+==== PV-tools installation script will fail on Fedora 26
+
+OpenXT 8.0.0 does not provide a PV-tools installation script for Fedora 26.
+
+Manual build and installation of the Linux PV-tools is possible.
+
+Sources can be fetched from upstream repositories
+ - https://github.com/OpenXT/pv-linux-drivers
+ - https://github.com/OpenXT/v4v
+
+To install V4V module:
+[source,sh]
+----
+user@host:~$ git clone https://github.com/openxt/v4v && cd v4v/v4v
+user@host:~$ git checkout tags/8.0.0 -b openxt-8.0.0
+user@host:~$ make
+user@host:~$ sudo make install
+----
+using dkms is also possible:
+[source,sh]
+----
+user@host:~$ git clone https://github.com/openxt/v4v && cd v4v
+user@host:~/v4v$ git checkout tags/8.0.0 -b openxt-8.0.0
+user@host:~/v4v$ sudo cp -r v4v /usr/src/v4v-1.0
+user@host:~/v4v$ sudo dkms add v4v/1.0
+user@host:~/v4v$ sudo dkms install v4v/1.0
+----
+
+To install OpenXT-VUSB module:
+[source,sh]
+----
+user@host:~$ git clone https://github.com/pv-linux-drivers && cd pv-linux-drivers/openxt-vusb
+user@host:~$ git checkout tags/8.0.0 -b openxt-8.0.0
+user@host:~$ make
+user@host:~$ sudo make install
+----
+using dkms is also possible:
+[source,sh]
+----
+user@host:~$ git clone https://github.com/openxt/pv-linux-drivers && cd pv-linux-drivers
+user@host:~/v4v$ git checkout tags/8.0.0 -b openxt-8.0.0
+user@host:~/v4v$ sudo cp -r openxt-vusb /usr/src/openxt-vusb-1.0
+user@host:~/v4v$ sudo dkms add openxt-vusb/1.0
+user@host:~/v4v$ sudo dkms install openxt-vusb/1.0
+----
+
+You will need xenstore utilities to report PV-tools installation from the guest to the OpenXT management stack. It is recommended to use the packaged provided by the guest's distribution (Debian: xenstore-utils, CentOS: xen-runtime, etc).
+Once installed, report PV drivers installation to OpenXT management stack from the guest:
+[source,sh]
+----
+user@host:~$ xenstore-exists "attr/PVAddons" || xenstore-write "attr/PVAddons" ""
+user@host:~$ xenstore-write "attr/PVAddons/Installed"  "1"
+user@host:~$ xenstore-write "attr/PVAddons/MajorVersion"  "8"
+user@host:~$ xenstore-write "attr/PVAddons/MinorVersion"  "0"
+user@host:~$ xenstore-write "attr/PVAddons/MicroVersion"  "0"
+user@host:~$ xenstore-write "attr/PVAddons/BuildVersion"  ""
+----
+
+The guest should now have access to PV-USB devices. V4V is not required to use PV-USB devices.
+
+* JIRA Issue: https://openxt.atlassian.net/browse/OXT-1204[OXT-1204]
+
+==== Connected USB storage measured as part of vendor measurements
+
+Some systems will measure the presence of connected USB devices during sealing operation. This will result in measurement failing if the USB device is removed on the next platform reboot.
+This cannot be worked-around and resealing the platform without the removable media is the only known option. Firmware updates may be provided by the platform OEM to change this behavior.
+
+* JIRA Issue: https://openxt.atlassian.net/browse/OXT-1129[OXT-1129]

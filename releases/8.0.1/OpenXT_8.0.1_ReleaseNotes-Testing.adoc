@@ -1,0 +1,26 @@
+==== Test Criteria
+
+Limited testing was conducted and published on the stable-8 branch. 8.0.1 release Quality Assurance testing was conducted on downstream derivatives which may include changes. The following list summarize publicly disclosed test results.
+
+===== HVM guests environments
+ * Windows10 1709 64 bit
+ * Fedora 27 (note: blacklist bochs_drm required from installation)
+ * Debian 8 (Jessie) 64 bit (note: blacklist bochs_drm required from installation)
+
+===== Tested platforms
+* Dell
+ - Dell Latitude E7450
+ - Dell Latitude E7470
+ - Dell Latitude E7480
+ - Dell Latitude E7490
+ - Dell Optiplex 7050
+
+* HP
+ - HP 800 G1
+ - HP 800 G2
+ - HP 850 G2
+
+===== Tests logs
+
+ * https://openxt.atlassian.net/wiki/spaces/TEST/pages/620789765/OpenXT+8.0+Measurement+test[Measurement]
+ * https://openxt.atlassian.net/wiki/spaces/~eric-ch/pages/625967109/OTA+upgrade+test[OTA upgrade]
