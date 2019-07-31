@@ -1,0 +1,24 @@
+==== Test Criteria
+
+Testing was performed on the stable-9 branch and against several release candidates prior to the OpenxT 9.0.0 release.  The following list summarizes publicly disclosed test results.
+
+===== HVM guests environments
+ * Windows10 1709 64 bit
+ * Windows10 1803 64 bit
+ * Windows10 1809 64 bit
+ * Ubuntu 18.04 64 bit (note: See Known Issues for Ubuntu for help installing)
+ * Debian 9.9 (note: See Known Issues for Debian for help installing)
+ * RHEL 7.5 (note: disable bochs_drm)
+
+===== Tested platforms
+* Dell
+ - Dell Optiplex 7040
+ - Dell Optiplex 7060
+ - Dell Optiplex XE3
+ - Dell Latitude E7470
+ - Dell Latitude E7490
+
+===== Tests logs
+
+ * https://openxt.atlassian.net/wiki/spaces/TEST/pages/762019841/Stable-9+rc2+Test+Matrix+results[General Testcases]
+ * https://openxt.atlassian.net/wiki/spaces/TEST/pages/761823271/OpenXT+9.0+Measurement+Test[Upgrade and Measurements]

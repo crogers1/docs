@@ -1,0 +1,226 @@
+
+==== Introduction
+
+These are the Release Notes for the 9.0.0 release of OpenXT.  The 9.0.0 release strives to modernize OpenXT and align many of its core components with upstream.
+For example, 9.0.0 is shipping with:
+
+* Xen 4.12 and Linux LTS 4.19
+* "Argo", the successor to v4v
+* 64-bit dom0 and service vms
+* upstream blktap3
+* Initial support for HVM UEFI Guests
+* SRTM+DRTM for Host UEFI installs
+
+In future releases, the OpenXT Maintainers and Contributors hope to build upon this foundation of modernization, offering new features, and continuing to align with modern,
+upstream software packages.
+
+Finally, thank you to everyone in the community who contributed to the 9.0.0 release, it wouldn't have been possible without your hard work and dedication.
+
+==== OE Layers and Core Component Versions
+
+The 9.0.0 release is a tagged checkpoint of the stable-9 branch.
+
+- OpenEmbedded: Pyro
+  * openembedded-core: link:http://git.openembedded.org/openembedded-core/commit/?id=819aa151bd634122a46ffdd822064313c67f5ba5[819aa151bd build-appliance-image: Update to pyro head revision]
+  * meta-openembedded: link:http://git.openembedded.org/openembedded-core/commit/?id=9eaebc6e783f1394bb5444326cd05a976b3122e9[9eaebc6e7 wireshark: Update Package to 2.2.12]
+  * meta-intel: link:http://git.yoctoproject.org/cgit/cgit.cgi/meta-intel/commit/?id=df4b25bcd31ece5369eca36d6f3590d98553336a[df4b25bcd linux-intel/4.9: update to 4.9.116]
+  * meta-java: link:http://git.yoctoproject.org/cgit/cgit.cgi/meta-java/commit/?id=0c27b120aa508e4bb41394b8dd3645949a611128[0c27b12 icedtea-native: Fix segmentation build during build]
+  * meta-selinux: link:http://git.yoctoproject.org/cgit/cgit.cgi/meta-selinux/commit/?id=b1dac7e2b26f869c991c6492aa7fa18eaa4b47f6[b1dac7e policycorutils: package files in base_sbindir.]
+  * meta-virtualization: link:http://git.yoctoproject.org/cgit/cgit.cgi/meta-virtualization/commit/?id=e3402d96f288b65c58ef24ae638c3f4e88dedf90[e3402d9 seabios: update SRC_URI to: https://www.seabios.org/downloads/]
+- Xen: 4.12.1-pre
+  * xen: link:http://xenbits.xen.org/gitweb/?p=xen.git;a=commit;h=b4f291b0ca914454cbac9fa5580bb35f8ab04eee[b4f291b xl: handle PVH type in apply_global_affinity_masks again]
+- Linux kernels: 4.19.53
+  * linux link:https://github.com/torvalds/linux/commit/9f31eb60d7a23536bf3902d4dc602f10c822b79e[9f31eb6 Linux 4.19.53]
+
+==== Measurement support
+
+OpenXT supports two modes of measurement. Each mode is enforced automatically depending on the boot method of the OpenXT installation (Legacy vs UEFI).
+
+As for Legacy or UEFI support, it is not currently possible to transistion or upgrade an existing OpenXT installation from Legacy to UEFI, therefore it is not possible to change an existing measurement scheme or forward seal against a different one.
+
+===== Legacy boot
+
+Legacy installation will perform DRTM measurement using TBoot. It requires a compatible TPM chip and TXT to be enabled in the BIOS before installing OpenXT.
+
+===== UEFI
+
+UEFI installation will perform SRTM+DRTM measurement. It requires a compatible TPM chip and TXT to be enabled in the BIOS before installing OpenXT.
+
+==== Package upgrades: Dom0
+
+* atapi-pt-helper: 0+git0+916b9bfc35-r0 -> 0+git0+b29a2fd833-r0
+* audio-helper: 0+git0+916b9bfc35-r0 -> 0+git0+b29a2fd833-r0
+* blktap3: 0+git0+4c8e89be4e-r0 -> 0+git0+a7832564b4-r0
+* compleat: 0+git0+916b9bfc35-r0 -> 0+git0+b29a2fd833-r0
+* curl: 7.54.0-r0 -> 7.65.1-r0
+* dbd: git-r0 -> 0+git0+eec9ec9068-r0
+* dialog: 1.2-20150225-r0 -> 1.3-20160828-r0
+* dm-agent: 0+git0+ccfca235de-r0 -> none
+* drm-surfman-plugin: 0+git0+3263678cd1-r0 -> 0+git0+f972c2d33e-r0
+* fbtap: 0+git0+c81549a8f4-r0 -> 0+git0+2edd6c7ae1-r0
+* heimdallr: git-r0 -> 0+git0+16b0da1e69-r0
+* intel-microcode: 20180807-r0 -> 20190514a-r0
+* iproute2: 4.10.0-r0.2 -> 4.10.0-r0
+* kernel: 4.14.66-r0 -> 4.19.53-r0
+* libcurl4: 7.54.0-r0 -> 7.65.1-r0
+* libdmbus-0.1-1: 0+git0+916b9bfc35-r0 -> 0+git0+b29a2fd833-r0
+* libicbinn-1.0-0: 0+git0+760f5b3553-r0 -> 0+git0+00e4535ebd-r0
+* libicbinn-1.0-server: 0+git0+760f5b3553-r0 -> 0+git0+00e4535ebd-r0
+* libidn: 1.33-r0 -> 2.2.0-r0
+* libpci3: 3.5.2-r0 -> 3.5.2-r0.1
+* libsapi0: git.0+56fec897d5-r0 -> none
+* libsndfile1: 1.0.27-r0 -> 1.0.28-r0
+* libsqlite3-0: 3:3.17.0-r0 -> 3:3.29.0-r0
+* libsurfman-2.1-0: 0+git0+3263678cd1-r0 -> 0+git0+f972c2d33e-r0
+* libtcti: git.0+56fec897d5-r0 -> none
+* libtirpc: 1.0.2-r0 -> 1.1.4-r0
+* libv4v: git0+c0c98489b4-r0 -> none
+* libxch-rpc: 0+git0+c47783e944-r0 -> 0+git0+27af244d20-r0
+* libxchdb: 0+git0+c47783e944-r0 -> 0+git0+27af244d20-r0
+* libxchutils: 0+git0+c47783e944-r0 -> 0+git0+27af244d20-r0
+* libxchv4v: 0+git0+c47783e944-r0 -> none
+* libxchwebsocket: 0+git0+c47783e944-r0 -> 0+git0+27af244d20-r0
+* libxchxenstore: 0+git0+c47783e944-r0 -> 0+git0+27af244d20-r0
+* libxcxenstore: 0+git0+c47783e944-r1 -> 0+git0+27af244d20-r1
+* libxencall1: 4.9.3-r0 -> RELEASE-4.12.0-r0
+* libxenctrl4.9: 4.9.3-r0 -> none
+* libxendevicemodel1: 4.9.3-r0 -> RELEASE-4.12.0-r0
+* libxenevtchn1: 4.9.3-r0 -> RELEASE-4.12.0-r0
+* libxenforeignmemory1: 4.9.3-r0 -> RELEASE-4.12.0-r0
+* libxengnttab1: 4.9.3-r0 -> RELEASE-4.12.0-r0
+* libxenguest4.9: 4.9.3-r0 -> none
+* libxenlight4.9: 4.9.3-r0 -> none
+* libxenmgr-core: 0+git0+08ef5856d8-r0 -> 0+git0+eec9ec9068-r0
+* libxenstat0: 4.9.3-r0 -> none
+* libxenstore3.0: 4.9.3-r0 -> RELEASE-4.12.0-r0
+* libxentoollog1: 4.9.3-r0 -> RELEASE-4.12.0-r0
+* libxlutil4.9: 4.9.3-r0 -> none
+* linux-firmware: 1:0.0+git0+6f5257c629-r0 -> 1:0.0+git0+7bc2464513-r0
+* linuxfb-surfman-plugin: 0+git0+3263678cd1-r0 -> 0+git0+f972c2d33e-r0
+* modules: 1.0-r1 -> none
+* nss: 3.34.1-r0 -> 3.45-r0
+* pciutils: 3.5.2-r0 -> 3.5.2-r0.1
+* qemu-dm: 2.6.2-r17.6 -> 3.1.0-r17.6
+* qmp-helper: 0+git0+916b9bfc35-r0 -> 0+git0+b29a2fd833-r0
+* rpc-proxy: 0+git0+08ef5856d8-r0 -> 0+git0+eec9ec9068-r0
+* rpcbind: 0.2.4-r0 -> none
+* shim: 14+git0+3ad44002b7-r0 -> 14+git0+6c8d08c0af-r0
+* surfman: 0+git0+3263678cd1-r0 -> 0+git0+f972c2d33e-r0
+* tboot: 1.9.6-r0 -> 1.9.9-r0
+* tpm2-tools: git.0+33cd0d966f-r0 -> 3.1.3-r0
+* udbus: 0+git0+c47783e944-r0 -> 0+git0+27af244d20-r0
+* uid: git-r0 -> 0+git0+85bdfe0334-r0
+* updatemgr: 0+git0+08ef5856d8-r0 -> 0+git0+eec9ec9068-r0
+* upgrade-db: 0+git0+08ef5856d8-r0 -> 0+git0+eec9ec9068-r0
+* v4v-module: git0+c0c98489b4-r0 -> none
+* vusb-daemon: 0+git0+f0275111fc-r0 -> 0+git0+873765e2d4-r0
+* wget: 1.19.1-r0 -> 1.19.2-r0
+* xcpmd: 0+git0+916b9bfc35-r0 -> 0+git0+b29a2fd833-r0
+* xec: 0+git0+08ef5856d8-r0 -> 0+git0+eec9ec9068-r0
+* xen: 4.9.3+git0+85af12d841-r0 -> RELEASE-4.12.0+git0+41658b5c44-r0
+* xenclient-feed-configs: 1909-r15 -> 6676-r15
+* xenclient-input-daemon: 0+git0+081e565e74-r0 -> 0+git0+b67f92fd99-r0
+* xenclient-nwd: 0+git0+6ee8cc614b-r0 -> 0+git0+35376b1438-r0
+* xenclient-toolstack: 0+git0+7702618789-r0 -> 0+git0+a5ca565cb6-r0
+* xenmgr: 0+git0+08ef5856d8-r0 -> 0+git0+eec9ec9068-r0
+* xenmgr-data: 0+git0+b0490a4aa5-r0 -> 0+git0+faf5aaabfc-r0
+* argo-module: none -> git0+2bb6f34f92-r0
+* ipxe: none -> gitr0+827dd1bfee-r0
+* libargo: none -> git0+2bb6f34f92-r0
+* libargo-bin: none -> git0+2bb6f34f92-r0
+* libxchargo: none -> 0+git0+27af244d20-r0
+* libxenctrl4.12: none -> RELEASE-4.12.0-r0
+* libxenguest4.12: none -> RELEASE-4.12.0-r0
+* libxenlight4.12: none -> RELEASE-4.12.0-r0
+* libxenstat4.12: none -> RELEASE-4.12.0-r0
+* libxentoolcore1: none -> RELEASE-4.12.0-r0
+* libxlutil4.12: none -> RELEASE-4.12.0-r0
+* modules-dom0: none -> 1.0-r1.1
+* ovmf: none -> git-r0
+* rsyslog-conf-dom0: none -> 1.0-r0
+* tpm2-tss: none -> 2.0.0-r0
+* txt-info-module: none -> 1.0-r0
+
+==== Package upgrades: UIVM
+
+* aspell: 0.60.6.1-r1 -> none
+* enchant: 1.6.0-r3 -> none
+* iproute2: 4.10.0-r0.2 -> 4.10.0-r0
+* kernel: 4.14.66-r0 -> 4.19.53-r0
+* libaspell15: 0.60.6.1-r1 -> none
+* libdrm: 2.4.75-r0 -> none
+* libepoxy0: 1.4.0-r0 -> none
+* libgl-mesa: 2:17.0.2-r0 -> none
+* libglapi0: 2:17.0.2-r0 -> none
+* libicbinn-1.0-0: 0+git0+760f5b3553-r0 -> 0+git0+00e4535ebd-r0
+* libicbinn-1.0-client: 0+git0+760f5b3553-r0 -> 0+git0+00e4535ebd-r0
+* libpci3: 3.5.2-r0 -> 3.5.2-r0.1
+* libsm6: 1:1.2.2-r0.1 -> 1:1.2.2-r0
+* libsndfile1: 1.0.27-r0 -> 1.0.28-r0
+* libsqlite3-0: 3:3.17.0-r0 -> 3:3.29.0-r0
+* libtirpc: 1.0.2-r0 -> 1.1.4-r0
+* libv4v: git0+c0c98489b4-r0 -> none
+* libxenstore3.0: 4.9.3-r0 -> RELEASE-4.12.0-r0
+* libxfont1: 1:1.5.2-r0 -> none
+* libxi6: 1:1.4.5-r0 -> 1:1.7.9-r0
+* libxklavier16: 5.0-r0.1 -> 5.4-r0
+* libxrandr2: 1:1.3.2-r0 -> 1:1.5.1-r0
+* libxxf86vm1: 1:1.1.4-r0 -> none
+* mesa-megadriver: 2:17.0.2-r0 -> none
+* modules: 1.0-r1 -> none
+* pciutils: 3.5.2-r0 -> 3.5.2-r0.1
+* rpcbind: 0.2.4-r0 -> none
+* v4v-module: git0+c0c98489b4-r0 -> none
+* xdotool: 2.20100818.3004-r0 -> none
+* xen: 4.9.3-r0 -> RELEASE-4.12.0-r0
+* xenclient-feed-configs: 1909-r15 -> 6676-r15
+* xenfb2: 0+git0+fad222619c-r0 -> 0+git0+1c1275efa9-r0
+* xf86-input-evdev: 2:2.6.0-r17.0 -> 2:2.10.5-r0
+* xf86-input-keyboard: 2:1.6.1-r17.0 -> 2:1.9.0-r0
+* xf86-input-mouse: 2:1.7.1-r17.0 -> 2:1.9.2-r0
+* xf86-video-fbdev: 2:0.4.2-r17.0.1 -> 2:0.4.4-r0
+* xkeyboard-config: 1.4-r4 -> 2.20-r0
+* xrandr: 1:1.3.5-r1 -> 1:1.5.0-r0
+* xserver-xf86-config: 0.1-r33.1 -> 0.1-r33
+* xserver-xorg: 2:1.11.2-r1.2 -> 2:1.19.5-r0
+* argo-module: none -> git0+2bb6f34f92-r0
+* iso-codes: none -> 3.74-r0
+* libargo: none -> git0+2bb6f34f92-r0
+* libargo-bin: none -> git0+2bb6f34f92-r0
+* libevdev: none -> 1.5.6-r0
+* libinput: none -> 1.6.1-r0
+* libxentoolcore1: none -> RELEASE-4.12.0-r0
+* libxfont2-2: none -> 2.0.1-r0
+* modules-uivm: none -> 1.0-r1.1
+* mtdev: none -> 1.1.5-r0
+* rsyslog-conf: none -> 8.22.0-r0
+* xf86-input-libinput: none -> 2:0.24.0-r0
+
+==== Package upgrades: NDVM (Network)
+
+* carrier-detect: 0+git0+916b9bfc35-r0 -> 0+git0+b29a2fd833-r0
+* db-tools: 0+git0+08ef5856d8-r0 -> 0+git0+eec9ec9068-r0
+* iproute2: 4.10.0-r0.2 -> 4.10.0-r0
+* kernel: 4.14.66-r0 -> 4.19.53-r0
+* libicbinn-1.0-0: 0+git0+760f5b3553-r0 -> 0+git0+00e4535ebd-r0
+* libicbinn-1.0-client: 0+git0+760f5b3553-r0 -> 0+git0+00e4535ebd-r0
+* libpci3: 3.5.2-r0 -> 3.5.2-r0.1
+* libtirpc: 1.0.2-r0 -> 1.1.4-r0
+* libv4v: git0+c0c98489b4-r0 -> none
+* libxenstore3.0: 4.9.3-r0 -> RELEASE-4.12.0-r0
+* linux-firmware: 1:0.0+git0+6f5257c629-r0 -> 1:0.0+git0+7bc2464513-r0
+* modules: 1.0-r1 -> none
+* pciutils: 3.5.2-r0 -> 3.5.2-r0.1
+* rpcbind: 0.2.4-r0 -> none
+* v4v-module: git0+c0c98489b4-r0 -> none
+* wget: 1.19.1-r0 -> 1.19.2-r0
+* xen: 4.9.3-r0 -> RELEASE-4.12.0-r0
+* xenclient-feed-configs: 1909-r15 -> 6676-r15
+* xenclient-nws: 0+git0+6ee8cc614b-r0 -> 0+git0+35376b1438-r0
+* xenclient-toolstack: 0+git0+7702618789-r0 -> 0+git0+a5ca565cb6-r0
+* argo-module: none -> git0+2bb6f34f92-r0
+* libargo: none -> git0+2bb6f34f92-r0
+* libargo-bin: none -> git0+2bb6f34f92-r0
+* libxentoolcore1: none -> RELEASE-4.12.0-r0
+* modules-ndvm: none -> 1.0-r1.1
+* rsyslog-conf: none -> 8.22.0-r0
